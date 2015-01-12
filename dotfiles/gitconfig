@@ -1,0 +1,39 @@
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+
+[user]
+	name = Alexander Ivchenko
+	email = aivchenk@gmail.com
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+
+[mergetool.ediff]
+	cmd = emacs
+
+[difftool]
+	prompt = false
+
+[merge]
+	tool = emerge
+
+[core]
+	editor = emacs
+
+[push]
+	default = current
+
+[remote "gcc"]
+        url = git://gcc.gnu.org/git/gcc.git
+        fetch = +refs/heads/master:refs/remotes/gccgit/master
+
+[remote "github"]
+        url =  git@github.com:aivchenk/dotfiles.git
