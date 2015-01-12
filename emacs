@@ -23,18 +23,15 @@
 ;; ;; dwarf mode
 ;; (autoload 'dwarf-mode "~/emacs/dwarf-mode.el" nil t)
 
+;; ;; open shell
+;; (require 'shell-pop)
+
 ;; Add marmalade-repo to list of archives
 (require 'package)
 (add-to-list 'package-archives
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
-
-;; open shell
-(require 'shell-pop)
-
-;; key quiz
-(require 'keywiz)
 
 ;;;;;;;;;;;;;
 ;; Hotkeys ;;
@@ -70,14 +67,6 @@
 (define-key global-map [(ctrl f12)] 'cscope-prev-file)
 (define-key global-map [(meta f9)] 'cscope-display-buffer)
 (define-key global-map [(meta f10)] 'cscope-display-buffer-toggle)
-
-;;;;;;;;;;;;
-;; cscope ;;
-;;;;;;;;;;;;
-
-
-(require 'xcscope)
-(setq cscope-do-not-update-database t)
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Some settings ;;
