@@ -20,5 +20,11 @@ set ruler " Always show current positions along the bottom
 
 let &t_Co=256
 colorscheme molokai
-let g:molokai_original = 1
+let g:molokai_original = 0
 let g:rehash256 = 1
+
+if has("autocmd")
+    au BufReadPost *.rkt,*.rktl set filetype=racket
+    au filetype racket set lisp
+    au filetype racket set autoindent
+endif
