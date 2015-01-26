@@ -76,8 +76,36 @@ alias rm="rm -I"
 #########
 
 tty=`tty`
-PS1='\[\033[0;32m\][\u@\h \W] {\!}\$\[\033[0;37m\]> '
-PROMPT_COMMAND=
+# Func to gen PS1 after CMDs
+export PROMPT_COMMAND=__prompt_command
+
+function __prompt_command() {
+    # This needs to be first
+    local EXIT="$?"
+
+    # Reset color
+    local RCol='\[\e[0m\]'
+
+    local Red='\[\e[0;31m\]'
+    local Gre='\[\e[0;32m\]'
+    local Pur='\[\e[0;35m\]'
+    local BGre='\[\e[1;32m\]'
+    local BYel='\[\e[1;33m\]'
+    local BBlu='\[\e[1;34m\]'
+
+    PS1="${Gre}["    # Insert [
+    PS1+="${Gre}\u"  # User name
+    PS1+="${BGre}@"  # "at"
+    PS1+="${Gre}\h"  # host name
+    PS1+=" ${Pur}\W" # local directory
+    PS1+="${Gre}]"   # closing ]
+    # Add red/green ">", depending on the return code
+    if [ $EXIT != 0 ]; then
+        PS1+="${Red}>${RCol} "
+    else
+        PS1+="${Gre}>${RCol} "
+    fi
+}
 
 if [ -f ~/.bash_private ]; then
     source ~/.bash_private
