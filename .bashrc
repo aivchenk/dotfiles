@@ -64,6 +64,7 @@ function call_gud_gdb {
 }
 
 alias emacs='emacs -nw'
+alias ediff='emacs -diff'
 alias egdb=call_gud_gdb
 
 alias grep="grep --color=always"
